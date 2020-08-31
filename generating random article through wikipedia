@@ -1,0 +1,22 @@
+import wikipedia
+import webbrowser
+import random
+
+def search():
+    wpage=wikipedia.random(1)
+    wwpage=wikipedia.random(1)
+    load=wikipedia.page(wpage)
+    x=input(" Wanna feed your brain with this article? \n Type 'yes' or press any key for no. \n Topic: {}".format(wpage))
+   
+    if x=="yes":
+        print("\n A short summary for you, Happy reading ! --------------\n\n "+wikipedia.summary(wpage))
+        y=input(" Wish to learn more about this article? \n (If yes, You will be redirected to wikipedia in browser) \n Type 'yes' or any key for no")
+        if y=="yes":
+             webbrowser.open(load.url,new=2)
+        else:
+            search()
+        exit(0)
+    else:
+        
+        search()
+search()
